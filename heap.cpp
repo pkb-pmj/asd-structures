@@ -38,6 +38,11 @@ public:
             i = j;
         }
     }
+
+    void insert(int v) {
+        A.push_back(v);
+        swim(n());
+    }
 };
 
 int main() {
@@ -57,5 +62,17 @@ int main() {
     heap.A[1] = 2;
     heap.print();
     heap.sink(1);
+    heap.print();
+
+    heap = Heap();
+    heap.print();
+
+    heap.insert(1);
+    heap.insert(2);
+    heap.insert(3);
+    heap.insert(4);
+    heap.insert(5);
+    heap.insert(6);
+    heap.insert(7);
     heap.print();
 }
