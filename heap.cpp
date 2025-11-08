@@ -20,10 +20,21 @@ public:
         if (2*i <= n()) print(2*i, h+1);
     }
 
-    void up(int i) {
+    void swim(int i) {
         while (i > 1 && A[i] > A[i/2]) {
             std::swap(A[i], A[i/2]);
             i /= 2;
+        }
+    }
+
+    void sink(int i) {
+        while (true) {
+            int j = i*2;
+            if (j > n()) return; // no children
+            if (j+1 <= n() && A[j+1] > A[j]) j++; // set j to larger/only child
+            if (A[i] < A[j]) std::swap(A[i], A[j]); // sink if smaller
+            else return;
+            i = j;
         }
     }
 };
@@ -39,6 +50,11 @@ int main() {
     heap.A.push_back(9);
     heap.print();
 
-    heap.up(7);
+    heap.swim(7);
+    heap.print();
+
+    heap.A[1] = 2;
+    heap.print();
+    heap.sink(1);
     heap.print();
 }
