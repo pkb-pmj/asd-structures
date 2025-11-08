@@ -5,6 +5,14 @@ class Heap {
 public:
     std::vector<int> A = { INT_MAX };
 
+    Heap() {};
+
+    Heap(std::vector<int> values): A(values) {
+        A.push_back(INT_MAX);
+        std::swap(A[0], A[n()]);
+        for (int i = n()/2; i >= 1; i--) sink(i); // n/2 is the first node with children
+    }
+
     int n() {
         return A.size() - 1;
     }
@@ -90,5 +98,11 @@ int main() {
     heap.deleteMax();
     heap.print();
     heap.deleteMax();
+    heap.print();
+
+    heap = Heap({ 9, 1, 2, 3, 4, 5, 6, 7, 8 });
+    heap.print();
+
+    heap = Heap({ 1, 9, 8, 7, 6, 5, 4, 3, 2 });
     heap.print();
 }
