@@ -30,6 +30,14 @@ struct LeftistHeap {
         root = merge(root, new Node(val));
     }
 
+    Node* deleteMax() {
+        Node* node = root;
+        root = merge(root->left, root->right);
+        node->left = nullptr;
+        node->right = nullptr;
+        return node;
+    }
+
     Node* merge(Node* a, Node* b) {
         if (!a) return b;
         if (!b) return a;
@@ -55,5 +63,10 @@ int main() {
     heap.insert(4);
     heap.insert(2);
     heap.insert(9);
+    heap.print();
+
+    heap.deleteMax();
+    heap.print();
+    heap.deleteMax();
     heap.print();
 }
