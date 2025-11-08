@@ -14,10 +14,11 @@ public:
     }
 
     void print(int i, int h) {
-        if (2*i+1 <= n()) print(2*i+1, h+1);
+        if (i > n()) return;
+        print(2*i+1, h+1);
         for (int j = 0; j < h; j++) std::cout << "  ";
         std::cout << A[i] << std::endl;
-        if (2*i <= n()) print(2*i, h+1);
+        print(2*i, h+1);
     }
 
     void swim(int i) {
