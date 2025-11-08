@@ -15,6 +15,13 @@ public:
         std::cout << A[i] << std::endl;
         if (2*i < A.size()) print(2*i, h+1);
     }
+
+    void up(int i) {
+        while (i > 1 && A[i] > A[i/2]) {
+            std::swap(A[i], A[i/2]);
+            i /= 2;
+        }
+    }
 };
 
 int main() {
@@ -25,6 +32,9 @@ int main() {
     heap.A.push_back(1);
     heap.A.push_back(4);
     heap.A.push_back(2);
+    heap.A.push_back(9);
+    heap.print();
 
+    heap.up(7);
     heap.print();
 }
