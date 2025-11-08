@@ -43,6 +43,14 @@ public:
         A.push_back(v);
         swim(n());
     }
+
+    int deleteMax() {
+        int v = A[1];
+        A[1] = A[n()];
+        A.pop_back();
+        sink(1);
+        return v;
+    }
 };
 
 int main() {
@@ -74,5 +82,12 @@ int main() {
     heap.insert(5);
     heap.insert(6);
     heap.insert(7);
+    heap.print();
+
+    heap.deleteMax();
+    heap.print();
+    heap.deleteMax();
+    heap.print();
+    heap.deleteMax();
     heap.print();
 }
