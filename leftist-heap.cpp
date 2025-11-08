@@ -4,7 +4,6 @@ struct Node {
     int val;
     Node* left = nullptr;
     Node* right = nullptr;
-    Node* up = nullptr;
     int npl = 1;
 
     Node(int val): val(val) {};
