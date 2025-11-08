@@ -5,15 +5,19 @@ class Heap {
 public:
     std::vector<int> A = { INT_MAX };
 
+    int n() {
+        return A.size() - 1;
+    }
+
     void print() {
         print(1, 0);
     }
 
     void print(int i, int h) {
-        if (2*i+1 < A.size()) print(2*i+1, h+1);
+        if (2*i+1 <= n()) print(2*i+1, h+1);
         for (int j = 0; j < h; j++) std::cout << "  ";
         std::cout << A[i] << std::endl;
-        if (2*i < A.size()) print(2*i, h+1);
+        if (2*i <= n()) print(2*i, h+1);
     }
 
     void up(int i) {
