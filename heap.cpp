@@ -11,6 +11,7 @@ public:
 
     void print() {
         print(1, 0);
+        std::cout << std::endl;
     }
 
     void print(int i, int h) {
